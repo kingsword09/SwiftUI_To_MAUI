@@ -18,6 +18,7 @@ public static class MauiProgram {
                 handlers.AddHandler(typeof(SpinEditControl), typeof(SpinEditHandler));
                 handlers.AddHandler(typeof(MaterialTextEditControl), typeof(MaterialTextEditHandler));
                 handlers.AddHandler(typeof(SegmentedButtonsControl), typeof(SegmentedButtonsHandler));
+                handlers.AddHandler(typeof(DWebViewControl), typeof(DWebViewHandler));
             });
 
 #if DEBUG

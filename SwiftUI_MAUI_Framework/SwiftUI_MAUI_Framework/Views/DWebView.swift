@@ -8,7 +8,7 @@
 import WebKit
 import SwiftUI
 
-struct DWebView: UIViewRepresentable {
+struct DWebViewItem: UIViewRepresentable {
     let webView: WKWebView
     
     func makeUIView(context: Context) -> WKWebView {
@@ -18,19 +18,20 @@ struct DWebView: UIViewRepresentable {
     func updateUIView(_ uiView: WKWebView, context: Context) {}
 }
 
-class DWebView_Test {
-    var webview: WKWebView
-    init() {
-        self.webview = WKWebView(frame: CGRect(x: 0, y: 100, width: 100, height: 100));
-        self.webview.load(URLRequest(url: URL(string: "https://www.baidu.com")!))
-    }
+struct DWebView : View {
+    @ObservedObject var wrapper: DWebViewWrapper
     
+    var body: some View {
+        VStack {
+            DWebViewItem(webView: wrapper.webview)
+        }
+    }
 }
 
 struct DWebView_Previews: PreviewProvider {
-    static var wrapper = DWebViewWrapper(webView: DWebView_Test().webview)
+    static var wrapper = DWebViewWrapper()
     
     static var previews: some View {
-        DWebView(webView: wrapper.webView!)
+        DWebView(wrapper: wrapper)
     }
 }

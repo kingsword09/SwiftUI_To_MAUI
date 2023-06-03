@@ -3,6 +3,7 @@ using Foundation;
 using ObjCRuntime;
 using SwiftUI_MAUI_Framework;
 using UIKit;
+using WebKit;
 
 namespace SwiftUI_MAUI_Framework
 {
@@ -15,25 +16,6 @@ namespace SwiftUI_MAUI_Framework
 		[Export ("initWithText:")]
 		[DesignatedInitializer]
 		NativeHandle Constructor (string text);
-	}
-
-	// @interface DWebViewWrapper : NSObject
-	[BaseType (typeof(NSObject), Name = "_TtC22SwiftUI_MAUI_Framework15DWebViewWrapper")]
-	[DisableDefaultCtor]
-	interface DWebViewWrapper
-	{
-		// @property (readonly, nonatomic, strong) UIView * _Nullable uiView;
-		[NullAllowed, Export ("uiView", ArgumentSemantic.Strong)]
-		UIView UiView { get; }
-	}
-
-	// @interface HelloWorldWrapper : NSObject
-	[BaseType (typeof(NSObject), Name = "_TtC22SwiftUI_MAUI_Framework17HelloWorldWrapper")]
-	interface HelloWorldWrapper
-	{
-		// @property (readonly, nonatomic, strong) UIView * _Nullable uiView;
-		[NullAllowed, Export ("uiView", ArgumentSemantic.Strong)]
-		UIView UiView { get; }
 	}
 
 	// @protocol UIViewHost
@@ -50,6 +32,32 @@ namespace SwiftUI_MAUI_Framework
 	{
 		// @required @property (readonly, nonatomic, strong) UIView * _Nullable uiView;
 		[Abstract]
+		[NullAllowed, Export ("uiView", ArgumentSemantic.Strong)]
+		UIView UiView { get; }
+	}
+
+	// @interface DWebViewWrapper : NSObject <UIViewHost>
+	[BaseType (typeof(NSObject), Name = "_TtC22SwiftUI_MAUI_Framework15DWebViewWrapper")]
+	interface DWebViewWrapper : UIViewHost
+	{
+		// @property (nonatomic, strong) WKWebView * _Nonnull webview;
+		[Export ("webview", ArgumentSemantic.Strong)]
+		WKWebView Webview { get; set; }
+
+		// @property (readonly, nonatomic, strong) UIView * _Nullable uiView;
+		[NullAllowed, Export ("uiView", ArgumentSemantic.Strong)]
+		UIView UiView { get; }
+
+		// @property (copy, nonatomic) NSString * _Nullable url;
+		[NullAllowed, Export ("url")]
+		string Url { get; set; }
+	}
+
+	// @interface HelloWorldWrapper : NSObject
+	[BaseType (typeof(NSObject), Name = "_TtC22SwiftUI_MAUI_Framework17HelloWorldWrapper")]
+	interface HelloWorldWrapper
+	{
+		// @property (readonly, nonatomic, strong) UIView * _Nullable uiView;
 		[NullAllowed, Export ("uiView", ArgumentSemantic.Strong)]
 		UIView UiView { get; }
 	}

@@ -9,47 +9,8 @@
             Spacing="5"
             VerticalOptions="Center">
 
-            <!-- <HorizontalStackLayout HorizontalOptions="Center"> -->
-            <!--     <Image -->
-            <!--         Source="dotnet_bot" -->
-            <!--         SemanticProperties.Description="Cute dot net bot waving hi to you!" -->
-            <!--         HeightRequest="100"  -->
-            <!--         WidthRequest="100"/> -->
-            <!--     <Image -->
-            <!--         Source="heart" -->
-            <!--         SemanticProperties.Description="Love it!" -->
-            <!--         HeightRequest="50" -->
-            <!--         WidthRequest="50" /> -->
-            <!-- </HorizontalStackLayout> -->
-            
-            <mauiLibrary:MaterialTextEditControl LeadingIconSource="heart"/>
-            
-            <mauiLibrary:SegmentedButtonsControl x:Name="segmented" BackgroundColor="Coral" HorizontalOptions="Fill">
-                <!-- <mauiLibrary:SegmentedButtonsControl.Buttons> -->
-                <!--     <mauiLibrary:ButtonDescription/> -->
-                <!-- </mauiLibrary:SegmentedButtonsControl.Buttons> -->
-            </mauiLibrary:SegmentedButtonsControl>
-            
-            <VerticalStackLayout x:Name="stackLayout"/>
-            
-            <Button Text="Set selection" Clicked="Button_OnClicked"/>
-            <Button Text="AddButton" Clicked="Button_OnClicked2"/>
-            <Button Text="Add Element" Clicked="Button_OnClicked3"/>
-            
-            <Switch Toggled="Switch_OnToggled" BackgroundColor="Aqua" HorizontalOptions="Center"/>
-            
-            <mauiLibrary:SpinEditControl x:Name="spinEditControl"
-                                         BorderColor="Green"
-                                         FocusedBorderColor="Purple"
-                                         Value="1" />
-            
-            <Label Text="Value:" BackgroundColor="Coral" HorizontalOptions="Fill"/>
-            <Entry BindingContext="{x:Reference spinEditControl}"
-                   Text="{Binding Value, Mode=TwoWay}"/>
-            
-            <Label Text="Interval:"/>
-            <Entry BindingContext="{x:Reference spinEditControl}"
-                   Text="{Binding Interval, Mode=TwoWay}"/>
+            <Button Text="load url" Clicked="Load_Url"/>
+            <mauiLibrary:DWebViewControl x:Name="dwebview" Url="https://www.baidu.com" BackgroundColor="Yellow"></mauiLibrary:DWebViewControl>
             
         </VerticalStackLayout>
     </ScrollView>
