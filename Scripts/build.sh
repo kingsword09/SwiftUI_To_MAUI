@@ -154,7 +154,7 @@ then
   print_yellow "\n[Generate ApiDefinitions.cs file]\n"
 
   sharpie bind \
-   -sdk iphoneos \
+   -sdk iphoneos16.4 \
    -output XCFrameworks/ \
    -namespace SwiftUI_MAUI_Framework \
    -framework XCFrameworks/SwiftUI_MAUI_Framework.xcframework/ios-arm64/SwiftUI_MAUI_Framework.framework
